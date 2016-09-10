@@ -1,4 +1,6 @@
 
+import { ADD_RECIPE } from '../actions/index';
+
 const DEFAULT_STATE = [
 	{
 		recipe: "Pumpkin Pie",
@@ -15,7 +17,11 @@ const DEFAULT_STATE = [
 ];
 
 export default (state = DEFAULT_STATE, action) => {
-
-
-	return state;
+	console.log(action);
+	switch(action.type) {
+		case ADD_RECIPE:
+			return [ action.payload, ...state ];
+		default:
+			return state;	
+	}
 }
