@@ -8,7 +8,7 @@ class RecipeItem extends Component {
 
 		return ingredients.map((ingredient) => {
 			return (
-				<li className="list-group-item">{ ingredient }</li>
+				<li className="list-group-item" key={ ingredient }>{ ingredient }</li>
 			);
 		});
 	}
