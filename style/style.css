@@ -1,0 +1,10 @@
+#accordion {
+	margin-top: 30px;
+	padding: 20px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+}
+
+#accordion .btn-danger {
+	margin-right: 5px;
+}
