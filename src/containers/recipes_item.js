@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { deleteRecipe } from '../actions/index';
 
 class RecipeItem extends Component {
 
@@ -29,7 +31,7 @@ class RecipeItem extends Component {
 						<ul className="list-group">
 							{ this.renderIngredients() }
 						</ul>
-						<button className="btn btn-danger">Delete</button>
+						<button className="btn btn-danger" onClick={ () => this.props.deleteRecipe(this.props.recipe) }>Delete</button>
 						<button className="btn btn-warning">Edit</button>
 					</div>
 				</div>
@@ -38,4 +40,4 @@ class RecipeItem extends Component {
 	}
 }
 
-export default RecipeItem;
+export default connect(null, { deleteRecipe })(RecipeItem);

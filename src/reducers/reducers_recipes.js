@@ -1,5 +1,5 @@
-
-import { ADD_RECIPE } from '../actions/index';
+import _ from 'lodash';
+import { ADD_RECIPE, DELETE_RECIPE } from '../actions/index';
 
 const DEFAULT_STATE = [
 	{
@@ -17,10 +17,15 @@ const DEFAULT_STATE = [
 ];
 
 export default (state = DEFAULT_STATE, action) => {
-	console.log(action);
 	switch(action.type) {
 		case ADD_RECIPE:
 			return [ action.payload, ...state ];
+		case DELETE_RECIPE:
+			const nextState = [ ...state ];
+			_.remove(nextState, (recipe) => {
+				return recipe === action.payload;
+			});
+			return nextState;
 		default:
 			return state;	
 	}
